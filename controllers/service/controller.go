@@ -743,7 +743,7 @@ func (s *Controller) lockedUpdateLoadBalancerHosts(service *v1.Service, hosts []
 }
 
 func wantsLoadBalancer(service *v1.Service) bool {
-	return service.Spec.Type == v1.ServiceTypeLoadBalancer
+	return service.Spec.Type == v1.ServiceTypeLoadBalancer && service.Spec.LoadBalancerClassName == ""
 }
 
 func loadBalancerIPsAreEqual(oldService, newService *v1.Service) bool {
